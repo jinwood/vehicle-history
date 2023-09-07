@@ -1,6 +1,6 @@
 "use client";
 import signUp from "@/firebase/auth/signup";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Page() {
