@@ -35,6 +35,7 @@ export default function Page() {
               name="email"
               id="email"
               placeholder="example@mail.com"
+              value="jinw@pm.me"
             />
           </label>
           <label htmlFor="password">
@@ -46,6 +47,7 @@ export default function Page() {
               name="password"
               id="password"
               placeholder="password"
+              value="frasers"
             />
           </label>
           <button type="submit">Sign in</button>
