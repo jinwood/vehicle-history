@@ -4,13 +4,15 @@ import signIn from "@/firebase/auth/signin";
 import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [email, setEmail] = React.useState("foo@bar.com");
+  const [password, setPassword] = React.useState("frasers");
+
   const router = useRouter();
 
   const handleForm = async (event: any) => {
     event.preventDefault();
 
+    console.log("component");
     const { error } = await signIn(email, password);
 
     if (error) {
@@ -35,7 +37,7 @@ export default function Page() {
               name="email"
               id="email"
               placeholder="example@mail.com"
-              value="jinw@pm.me"
+              value="foo@bar.com"
               className="w-full bg-gray-700 text-white p-2 rounded"
             />
           </div>
