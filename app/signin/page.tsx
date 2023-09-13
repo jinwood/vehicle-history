@@ -11,23 +11,23 @@ export default function Page() {
   const handleForm = async (event: any) => {
     event.preventDefault();
 
-    const { result, error } = await signIn(email, password);
+    const { error } = await signIn(email, password);
 
     if (error) {
       return console.log(error);
     }
 
-    // else successful
-    console.log(result);
     return router.push("/user-home");
   };
   return (
-    <div className="wrapper">
-      <div className="form-wrapper">
-        <h1 className="mt-60 mb-30">Sign in</h1>
-        <form onSubmit={handleForm} className="form">
-          <label htmlFor="email">
-            <p>Email</p>
+    <div className="bg-gray-900 min-h-fit flex items-center justify-center">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-3xl font-semibold text-white mb-8">Sign in</h1>
+        <form onSubmit={handleForm} className="space-y-4">
+          <div>
+            <label htmlFor="email" className="text-white">
+              Email
+            </label>
             <input
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -36,10 +36,13 @@ export default function Page() {
               id="email"
               placeholder="example@mail.com"
               value="jinw@pm.me"
+              className="w-full bg-gray-700 text-white p-2 rounded"
             />
-          </label>
-          <label htmlFor="password">
-            <p>Password</p>
+          </div>
+          <div>
+            <label htmlFor="password" className="text-white">
+              Password
+            </label>
             <input
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -48,9 +51,15 @@ export default function Page() {
               id="password"
               placeholder="password"
               value="frasers"
+              className="w-full bg-gray-700 text-white p-2 rounded"
             />
-          </label>
-          <button type="submit">Sign in</button>
+          </div>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          >
+            Sign in
+          </button>
         </form>
       </div>
     </div>

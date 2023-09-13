@@ -45,7 +45,15 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <AuthContext.Provider value={{ user }}>
-      {loading ? <div>Loading...</div> : children}
+      {loading ? (
+        <div className="bg-gray-900 min-h-screen flex items-center justify-center">
+          <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            Loading...
+          </div>
+        </div>
+      ) : (
+        children
+      )}
     </AuthContext.Provider>
   );
 };

@@ -18,7 +18,36 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AuthContextProvider>{children}</AuthContextProvider>
+        <AuthContextProvider>
+          <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+            {/* Navigation */}
+            <nav className="bg-gray-800 p-4">
+              <div className="container mx-auto">
+                {/* Add your navigation links here */}
+                <ul className="flex space-x-4">
+                  <li>
+                    <a href="#">Home</a>
+                  </li>
+                  <li>
+                    <a href="#">About</a>
+                  </li>
+                  {/* Add more navigation links as needed */}
+                </ul>
+              </div>
+            </nav>
+
+            {/* Content */}
+            <main className="container mx-auto py-8 flex-grow">{children}</main>
+
+            {/* Footer */}
+            <footer className="bg-gray-800 text-gray-500 py-4">
+              <div className="container mx-auto">
+                {/* Add your footer content here */}
+                &copy; {new Date().getFullYear()} Your Website Name
+              </div>
+            </footer>
+          </div>
+        </AuthContextProvider>
       </body>
     </html>
   );
