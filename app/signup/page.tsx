@@ -1,9 +1,10 @@
 "use client";
-import signUp from "@/firebase/auth/signup";
+import useRegister from "@/hooks/useRegister";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Page() {
+  const { register } = useRegister();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -11,11 +12,7 @@ export default function Page() {
   const handleForm = async (event: any) => {
     event.preventDefault();
 
-    const { result, error } = await signUp(email, password);
-
-    if (error) {
-      console.error("error signing up", error);
-    }
+    register({ email, password });
 
     return router.push("/admin");
   };

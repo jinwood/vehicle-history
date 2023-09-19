@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import signIn from "@/firebase/auth/signin";
 import { useRouter } from "next/navigation";
+import useRegister from "@/hooks/useRegister";
 
 export default function Page() {
+  const { register } = useRegister();
   const [email, setEmail] = React.useState("foo@bar.com");
   const [password, setPassword] = React.useState("frasers");
 
@@ -13,18 +14,15 @@ export default function Page() {
     event.preventDefault();
 
     console.log("component");
-    const { error } = await signIn(email, password);
 
-    if (error) {
-      return console.log(error);
-    }
+    register({ email, password });
 
     return router.push("/user-home");
   };
   return (
     <div className="bg-gray-900 min-h-fit flex items-center justify-center">
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-3xl font-semibold text-white mb-8">Sign in</h1>
+        <h1 className="text-3xl font-semibold text-white mb-8">Register</h1>
         <form onSubmit={handleForm} className="space-y-4">
           <div>
             <label htmlFor="email" className="text-white">
@@ -60,7 +58,7 @@ export default function Page() {
             type="submit"
             className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
           >
-            Sign in
+            Register
           </button>
         </form>
       </div>
