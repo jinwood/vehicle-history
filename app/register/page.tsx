@@ -13,8 +13,6 @@ export default function Page() {
   const handleForm = async (event: any) => {
     event.preventDefault();
 
-    console.log("component");
-
     register({ email, password });
 
     return router.push("/user-home");

@@ -2,10 +2,16 @@ import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
 export const LoginButton = () => {
+  const handleSignIn = async () => {
+    const callbackUrl = `${process.env.NEXT_PUBLIC_NGROK_URL}/api/auth/callback/cognito`;
+    console.log("login button callbackUrl", callbackUrl);
+    await signIn("cognito", { callbackUrl });
+  };
+
   return (
     <button
       className="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-      onClick={() => signIn()}
+      onClick={() => handleSignIn()}
     >
       Sign in
     </button>
@@ -24,10 +30,14 @@ export const RegisterButton = () => {
 };
 
 export const LogoutButton = () => {
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <button
       className="mr-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-      onClick={() => signOut()}
+      onClick={() => handleSignOut()}
     >
       Sign Out
     </button>

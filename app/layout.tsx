@@ -1,8 +1,5 @@
-import { authOptions } from "@/context/AuthContext";
 import "./globals.css";
-import type { GetServerSidePropsContext, Metadata } from "next";
-import { getServerSession } from "next-auth";
-import { SessionProvider, useSession } from "next-auth/react";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,7 +14,6 @@ export default function RootLayout(props: {
   pageProps: any;
 }) {
   const { pageProps, children } = props;
-  console.log(pageProps);
   return (
     <html lang="en">
       <body className={inter.className}>

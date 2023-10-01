@@ -1,5 +1,5 @@
-import NextAuth from "next-auth";
 import CognitoProvider from "next-auth/providers/cognito";
+import NextAuth from "next-auth";
 
 export const authOptions = {
   providers: [
@@ -10,6 +10,9 @@ export const authOptions = {
     }),
   ],
   theme: {},
+  callbacks: {
+    redirect: async (url: string, baseUrl: string) => {
+      return `${process.env.NEXT_PUBLIC_NGROK_URL}`;
+    },
+  },
 };
-
-export default NextAuth(authOptions);
