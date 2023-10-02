@@ -1,18 +1,8 @@
-import CognitoProvider from "next-auth/providers/cognito";
-import NextAuth from "next-auth";
+import { CognitoUserPool } from "amazon-cognito-identity-js";
 
-export const authOptions = {
-  providers: [
-    CognitoProvider({
-      clientId: String(process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID),
-      clientSecret: String(process.env.NEXT_PUBLIC_COGNITO_CLIENT_SECRET),
-      issuer: String(process.env.NEXT_PUBLIC_COGNITO_ISSUER),
-    }),
-  ],
-  theme: {},
-  callbacks: {
-    redirect: async (url: string, baseUrl: string) => {
-      return `${process.env.NEXT_PUBLIC_NGROK_URL}`;
-    },
-  },
+const poolConfig = {
+  UserPoolId: String(process.env.NEXT_PUBLIC_COGNITO_USER_POOL_ID),
+  ClientId: String(process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID),
 };
+
+export const userPool = new CognitoUserPool(poolConfig);

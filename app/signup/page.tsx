@@ -1,5 +1,7 @@
 "use client";
+import { userPool } from "@/context/AuthContext";
 import useRegister from "@/hooks/useRegister";
+import { CognitoUserAttribute } from "amazon-cognito-identity-js";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -12,8 +14,22 @@ export default function Page() {
   const handleForm = async (event: any) => {
     event.preventDefault();
 
-    register({ email, password });
+    const attributes: CognitoUserAttribute[] = [
+      new CognitoUserAttribute({
+        Name: "email",
+        Value: email,
+      }),
+      new CognitoUserAttribute({
+        Name: "password",
+        Value: password,
+      }),
+    ];
 
+    const handleError = (err: any) => {
+      console.error(err);
+    };
+
+    userPool.signUp(email, password, attributes, [], handleError);
     return router.push("/admin");
   };
 

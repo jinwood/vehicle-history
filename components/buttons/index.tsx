@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const LoginButton = () => {
   const handleSignIn = async () => {
-    const callbackUrl = `${process.env.NEXT_PUBLIC_NGROK_URL}/api/auth/callback/cognito`;
+    const callbackUrl = `https://localhost:3000/api/auth/callback/cognito`;
     console.log("login button callbackUrl", callbackUrl);
     await signIn("cognito", { callbackUrl });
   };
