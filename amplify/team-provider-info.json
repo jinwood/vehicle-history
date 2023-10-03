@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vehiclehistory-staging-200808-authRole",
+      "UnauthRoleArn": "arn:aws:iam::158110511110:role/amplify-vehiclehistory-staging-200808-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::158110511110:role/amplify-vehiclehistory-staging-200808-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-vehiclehistory-staging-200808-deployment",
+      "UnauthRoleName": "amplify-vehiclehistory-staging-200808-unauthRole",
+      "StackName": "amplify-vehiclehistory-staging-200808",
+      "StackId": "arn:aws:cloudformation:eu-west-2:158110511110:stack/amplify-vehiclehistory-staging-200808/67d035f0-615f-11ee-8e18-029578cc051e",
+      "AmplifyAppId": "d1s06dge4yzyg5"
+    },
+    "categories": {
+      "auth": {
+        "vehiclehistory": {}
+      }
+    }
+  }
+}

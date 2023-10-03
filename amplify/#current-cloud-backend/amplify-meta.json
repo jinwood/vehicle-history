@@ -1,0 +1,56 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vehiclehistory-staging-200808-authRole",
+      "UnauthRoleArn": "arn:aws:iam::158110511110:role/amplify-vehiclehistory-staging-200808-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::158110511110:role/amplify-vehiclehistory-staging-200808-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-vehiclehistory-staging-200808-deployment",
+      "UnauthRoleName": "amplify-vehiclehistory-staging-200808-unauthRole",
+      "StackName": "amplify-vehiclehistory-staging-200808",
+      "StackId": "arn:aws:cloudformation:eu-west-2:158110511110:stack/amplify-vehiclehistory-staging-200808/67d035f0-615f-11ee-8e18-029578cc051e",
+      "AmplifyAppId": "d1s06dge4yzyg5"
+    }
+  },
+  "auth": {
+    "vehiclehistory": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 6,
+          "passwordPolicyCharacters": []
+        },
+        "signupAttributes": [],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "eu-west-2_9LR48sD12",
+        "AppClientIDWeb": "6obtmlqe88qdut48cmu67usoql",
+        "AppClientID": "3d50e9ej7354i3pbm901f08srg",
+        "IdentityPoolId": "eu-west-2:e4cffe8e-7a10-4c12-a952-6369443975a6",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-west-2:158110511110:userpool/eu-west-2_9LR48sD12",
+        "IdentityPoolName": "testAuthIdentityPool__staging",
+        "UserPoolName": "vehiclehistory"
+      },
+      "lastPushTimeStamp": "2023-10-03T07:40:13.219Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vehiclehistory-staging-200808-deployment/amplify-cfn-templates/auth/vehiclehistory-cloudformation-template.json",
+        "logicalId": "authvehiclehistory"
+      },
+      "lastPushDirHash": "lAhUzFSpCLNZciwRGCpseKG8Gfc="
+    }
+  }
+}
